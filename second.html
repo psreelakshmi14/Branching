@@ -2,3 +2,17 @@
 <h1> THIS IS DEV BRANCH </h1>
 <h1> THIS IS DEV BRANCH </h1>
 <h1> THIS IS DEV BRANCH </h1>
+pipeline {
+    agent any  // Runs on any available agent (master/slave)
+
+    stages {
+        stage('Checkout') {  // Name the stage properly
+            steps {
+                git branch: 'main', 
+                    credentialsId: 'connection', 
+                    url: 'https://github.com/psreelakshmi14/Branching.git'
+            }
+        }
+    }
+}
+
